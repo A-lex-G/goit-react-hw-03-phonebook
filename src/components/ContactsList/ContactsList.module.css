@@ -1,0 +1,15 @@
+.list_item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.deleteBtn {
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.deleteBtn:hover {
+    background-color: blanchedalmond;
+    border: 1px solid whitesmoke;
+}

@@ -1,0 +1,10 @@
+.search_title {
+    display: flex;
+    margin-left: 10px;
+}
+
+.search_input {
+    margin-left: 10px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
