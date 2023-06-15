@@ -10,7 +10,6 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: "",
-    // key: "contacts",
   };
 
   componentDidMount() {
