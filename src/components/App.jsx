@@ -5,10 +5,27 @@ import { SearchInput } from "./SearchInput/SearchInput";
 import { nanoid } from "nanoid";
 
 export class App extends Component {
+  key = "contacts";
+
   state = {
     contacts: [],
     filter: "",
+    // key: "contacts",
   };
+
+  componentDidMount() {
+    const storageItems = JSON.parse(localStorage.getItem(this.key));
+
+    if (storageItems) {
+      this.setState({ contacts: storageItems })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(this.key, JSON.stringify(this.state.contacts))
+    }
+  }
 
   formDataGetter = (data) => {
     const { name, number } = data;
@@ -38,20 +55,6 @@ export class App extends Component {
         contacts: prevState.contacts.filter(contact => contact.contactId !== idData)
       }
     })
-  }
-
-  componentDidMount() {
-    const storageItems = JSON.parse(localStorage.getItem('contacts'));
-
-    if (storageItems) {
-      this.setState({ contacts: storageItems })
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState){
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
-    }
   }
 
   render() {
